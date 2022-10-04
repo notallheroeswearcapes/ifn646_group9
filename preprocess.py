@@ -151,7 +151,7 @@ def __missing_data_analysis(df):
     return mv, mv['percent_missing'].mean()
 
 
-def __split_data(df, num_train=20, num_test=5):
+def __split_data(df, num_train=21, num_test=5):
     """
     Splits the combined DataFrame into training, test, validation sets. Takes a random set of days into account per
     set that can be specified via parameters.
