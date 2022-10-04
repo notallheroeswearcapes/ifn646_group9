@@ -4,6 +4,8 @@ import time
 import random
 from os import listdir, makedirs
 from os.path import isfile, join, exists
+import warnings
+warnings.filterwarnings('ignore')
 
 
 def load_data(data_path="raw_data", cache_file_name="combined_sleep_data", cache_dir_name="cached_data"):
