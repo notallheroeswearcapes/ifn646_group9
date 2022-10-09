@@ -131,3 +131,7 @@ dmypy.json
 
 # pycharm
 .idea/
+
+# cached data
+cached_data/
+
