@@ -160,7 +160,7 @@ def __preprocess_data(data, name, strategy):
     print(f"{pot_out_perc.mean():.2f}% of the data are considered a potential outlier and are replaced by the mean.")
     print(potential_outlier_cols.sort_values(ascending=False))
     removed_outliers = outlier_detection_set.mask(potential_outliers, outlier_detection_set.median(), axis=1)
-    data = removed_outliers
+    # data = removed_outliers
 
     # missing data analysis
     print('\nMissing values for columns:')
