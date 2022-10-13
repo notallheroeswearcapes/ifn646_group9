@@ -129,9 +129,9 @@ def __split_data(df, num_train=21, num_test=5):
     test = df[df["day"].isin(test_days)]
     val = df[df["day"].isin(val_days)]
 
-    train.drop("day", axis=1, inplace=True)
-    test.drop("day", axis=1, inplace=True)
-    val.drop("day", axis=1, inplace=True)
+    # train.drop("day", axis=1, inplace=True)
+    # test.drop("day", axis=1, inplace=True)
+    # val.drop("day", axis=1, inplace=True)
 
     return train, test, val
 
