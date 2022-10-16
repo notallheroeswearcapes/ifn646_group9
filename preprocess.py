@@ -139,7 +139,7 @@ def __preprocess_data(data, name):
     print(f"{pot_out_perc.mean():.2f}% of the data are considered a potential outlier and are replaced by the mean.")
     print(potential_outlier_cols.sort_values(ascending=False))
     removed_outliers = outlier_detection_set.mask(potential_outliers, outlier_detection_set.median(), axis=1)
-    data = removed_outliers
+    # data = removed_outliers
 
     # missing data analysis
     print('\nMissing values for columns:')
@@ -149,12 +149,12 @@ def __preprocess_data(data, name):
     print(missing_values)
 
     # handle missing values according to supplied strategy
-    data = __handle_missing_values(data)
+    data = __handle_missing_values(data, 'Actiware classification')
 
     return data
 
 
-def __handle_missing_values(df):
+def __handle_missing_values(df, classification_col):
     """
     Missing values are handled according to the note for actigraphy in the assignment specification. The first and last
     5-minute intervals of uninterrupted sleep per day are extracted and all classification values before or after that
@@ -162,6 +162,7 @@ def __handle_missing_values(df):
     safely removed.
 
     :param df: The DataFrame containing the (sub)set of data.
+    :param classification_col: The column containing classification values.
     :return: The DataFrame with handled missing values.
     """
     # remove rows where both activity counts and classification are missing
@@ -171,13 +172,13 @@ def __handle_missing_values(df):
     indices = []
     for day in days:
         subset = df[df['day'] == day]
-        indices.append(__find_first_and_last_uninterrupted_sleep_intervals(subset))
+        indices.append(__find_first_and_last_uninterrupted_sleep_intervals(subset, classification_col))
 
     rows_altered = 0
     for start, first_sleep, last_sleep, end in indices:
         rows_altered += first_sleep - start + end - last_sleep
-        df.loc[start:first_sleep + 1, 'Actiware classification'] = 1
-        df.loc[last_sleep:end + 1, 'Actiware classification'] = 1
+        df.loc[start:first_sleep + 1, classification_col] = 1
+        df.loc[last_sleep:end + 1, classification_col] = 1
 
     print(f"""
     {length_before - len(df)} rows were dropped where both activity counts and classification were missing.
@@ -188,16 +189,17 @@ def __handle_missing_values(df):
     return df
 
 
-def __find_first_and_last_uninterrupted_sleep_intervals(df):
+def __find_first_and_last_uninterrupted_sleep_intervals(df, classification_col):
     """
     Extracts the first and last 5-minute intervals of uninterrupted sleep (i.e. continuous 0 values) from the
     classification column.
 
     :param df: The sub-DataFrame containing actigraphy for a single day to check for sleep intervals.
+    :param classification_col: The column containing classification values.
     :return: A 4-tuple: the start index of the sub-DataFrame, the index of the beginning of the first 5-minute interval,
     the index of the end of the last 5-minute interval and the end index of sub-DataFrame.
     """
-    indices = df.index[df['Actiware classification'] == 0].tolist()
+    indices = df.index[df[classification_col] == 0].tolist()
     first_sleep = np.nan
     last_sleep = np.nan
     for i, index in enumerate(indices):
