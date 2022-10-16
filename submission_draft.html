@@ -14041,6 +14041,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
 <span class="kn">from</span> <span class="nn">preprocess</span> <span class="kn">import</span> <span class="n">load_data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">__handle_missing_values</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># create image directory</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -14176,6 +14180,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">full</span><span class="p">[</span><span class="s1">&#39;Actiwatch activity counts&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actiwatch activity counts&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;img/actiwatch_histogram.pdf&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -14222,6 +14227,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">full</span><span class="p">[</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;img/apple_watch_histogram.pdf&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -15159,6 +15165,7 @@ dtype: int64
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Actiwatch activity counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;img/scatter_plot.pdf&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -15172,20 +15179,6 @@ dtype: int64
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;AxesSubplot:xlabel=&#39;Apple Watch ENMO&#39;, ylabel=&#39;Actiwatch activity counts&#39;&gt;</pre>
-</div>
-
-</div>
 
 <div class="jp-OutputArea-child">
 
@@ -15247,6 +15240,8 @@ dtype: int64
 <span class="c1"># set labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Apple Watch ENMO&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Actiwatch activity counts&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;img/scatter_plot_with_regression_line.pdf&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The function of the regression line is:</span><span class="se">\n</span><span class="s1">f(x) =&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
@@ -15825,7 +15820,8 @@ f(x) = 582.3 x + 0.2081
 <span class="n">s</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Predicted label&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;True label&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
 
-<span class="n">s</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;img/confusion_matrix.pdf&quot;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -15839,20 +15835,6 @@ f(x) = 582.3 x + 0.2081
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Confusion Matrix&#39;}, xlabel=&#39;Predicted label&#39;, ylabel=&#39;True label&#39;&gt;</pre>
-</div>
-
-</div>
 
 <div class="jp-OutputArea-child">
 
