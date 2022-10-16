@@ -14172,7 +14172,8 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Actiwatch activity counts&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot histogram of Actiwatch activity counts for the whole data set</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Actiwatch activity counts&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14196,7 +14197,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7ff4eae23fa0&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f86b667a9e0&gt;</pre>
 </div>
 
 </div>
@@ -14221,6 +14222,52 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot histogram of Apple Watch ENMO for the whole data set</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">full</span><span class="p">[</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">);</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14233,7 +14280,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">total_counts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">src_col</span><span class="p">,</span> <span class="n">dest_col</span><span class="p">):</span>
@@ -14270,7 +14317,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># call total_counts function and add a column for total counts from Actiwatch</span>
@@ -14295,7 +14342,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -14620,7 +14667,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
@@ -14654,7 +14701,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Actiware classification calculated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Actiwatch Total Counts&#39;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -14698,7 +14745,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -15054,7 +15101,7 @@ There are 92.18 0 values in column &#39;Actiwatch activity counts&#39;.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">classification_stats</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Actiware classification&quot;</span><span class="p">,</span> <span class="s2">&quot;Actiware classification calculated&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
@@ -15120,7 +15167,7 @@ dtype: int64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Apple Watch ENMO&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Actiwatch activity counts&#39;</span><span class="p">)</span>
@@ -15141,7 +15188,7 @@ dtype: int64
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
@@ -15184,7 +15231,7 @@ dtype: int64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># declare x and y for the model</span>
@@ -15273,7 +15320,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># predict activity counts</span>
@@ -15301,7 +15348,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -15500,7 +15547,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># classify</span>
@@ -15545,7 +15592,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -15774,7 +15821,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create matrix</span>
@@ -15808,7 +15855,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
@@ -15858,7 +15905,7 @@ f(x) = 582.3 x + 0.2081
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Accuracy</span>
