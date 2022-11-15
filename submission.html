@@ -15986,22 +15986,30 @@ F1 score: 		 98.81 %
     
     <span class="c1"># calc awakenings during night for actiware</span>
     <span class="n">awakening_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># iterate over all ids of night period</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fall_asleep_id_acti</span><span class="p">,</span> <span class="n">wake_up_id_acti</span><span class="p">):</span>
+        <span class="c1"># append all ids where wearer is awake</span>
         <span class="k">if</span> <span class="n">subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Actiware classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">awakening_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># calculate distinct wake ups</span>
     <span class="n">distinct_awakenings</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">awakening_ids</span><span class="p">)):</span>
+        <span class="c1"># just consider new wake ups, i.e., where prior epoch is not already set to wake</span>
         <span class="k">if</span> <span class="n">awakening_ids</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">awakening_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">distinct_awakenings</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">awakenings_acti</span> <span class="o">=</span> <span class="n">distinct_awakenings</span>
     
     <span class="c1"># calc awakenings during night for predicted</span>
     <span class="n">awakening_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># iterate over all ids of night period</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fall_asleep_id_pred</span><span class="p">,</span> <span class="n">wake_up_id_pred</span><span class="p">):</span>
+        <span class="c1"># append all ids where wearer is awake</span>
         <span class="k">if</span> <span class="n">subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Predicted wake&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">awakening_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># calculate distinct wake ups</span>
     <span class="n">distinct_awakenings</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">awakening_ids</span><span class="p">)):</span>
+        <span class="c1"># just consider new wake ups, i.e., where prior epoch is not already set to wake</span>
         <span class="k">if</span> <span class="n">awakening_ids</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">awakening_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">distinct_awakenings</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">awakenings_pred</span> <span class="o">=</span> <span class="n">distinct_awakenings</span>
